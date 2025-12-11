@@ -137,9 +137,6 @@ def get_batch_cell_embeddings(
                 embeddings = embeddings.cpu().numpy()
                 cell_embeddings[count : count + len(embeddings)] = embeddings
                 count += len(embeddings)
-        cell_embeddings = cell_embeddings / np.linalg.norm(
-            cell_embeddings, axis=1, keepdims=True
-        )
     else:
         raise ValueError(f"Unknown cell embedding mode: {cell_embedding_mode}")
     return cell_embeddings
